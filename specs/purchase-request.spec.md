@@ -42,8 +42,8 @@ PurchaseRequest:
 - status must be one of: draft, submitted, approved, rejected.
 
 
-<!-- ## Status Filter Behavior
-GET /purchase-requests/status/{status} returns only purchase requests matching the status path parameter. -->
+## Status Filter Behavior
+GET /purchase-requests/status/{status} returns only purchase requests matching the status path parameter.
 
 
 ## Seed Data
