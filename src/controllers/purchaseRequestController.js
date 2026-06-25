@@ -10,7 +10,20 @@ function sendValidationErrors(res, errors) {
 }
 
 function listPurchaseRequests(req, res) {
-  return res.json(purchaseRequestStore.getAll());
+  const results = purchaseRequestStore.getAll();
+  return res.json(results);
+}
+
+function listPurchaseRequestsByStatus(req, res) {
+  const status = req.params.status;
+  const { VALID_STATUSES } = require('../models/purchaseRequest');
+
+  if (!VALID_STATUSES.includes(status)) {
+    return res.status(400).json({ errors: [`status must be one of: ${VALID_STATUSES.join(', ')}`] });
+  }
+
+  const results = purchaseRequestStore.getAll().filter((pr) => pr.status === status);
+  return res.json(results);
 }
 
 function getPurchaseRequest(req, res) {

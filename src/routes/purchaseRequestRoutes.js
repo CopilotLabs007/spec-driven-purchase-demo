@@ -2,6 +2,7 @@ const express = require('express');
 const purchaseRequestController = require('../controllers/purchaseRequestController');
 
 const router = express.Router();
+console.log('purchaseRequestController exports:', Object.keys(purchaseRequestController));
 
 router.post('/', purchaseRequestController.createPurchaseRequest);
 router.get('/', purchaseRequestController.listPurchaseRequests);
